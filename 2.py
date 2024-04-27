@@ -86,10 +86,16 @@ def data_oper(string1,string2):
     '''
     
     common_tuple = ()
+    tmp_list = []
 
     for element in list1:
         if element in list2:
-            common_tuple += tuple([element])
+            if element not in tmp_list:
+                # check if element in tmp list if not append
+                tmp_list.append(element)
+                tmp_list.sort()
+            
+    common_tuple += tuple(tmp_list)
     
     
     
@@ -102,10 +108,14 @@ def data_oper(string1,string2):
     
     
     ends_with = ()
+    tmp_list = []
 
     for element in list3:
         if (element[-1] == 's'):
-            ends_with += tuple([element])
+            if element not in tmp_list:
+                tmp_list.append(element)
+                tmp_list.sort()
+    ends_with += tuple(tmp_list)
     
 
     
